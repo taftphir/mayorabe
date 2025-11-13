@@ -10,8 +10,7 @@
     "@types/express": "^5.0.5",
     "@types/node": "^24.10.1",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.9.3",
-    "dotenv": "^17.2.3",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.81.1",
