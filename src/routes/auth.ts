@@ -3,8 +3,12 @@ import { createClient } from '@supabase/supabase-js';
 
 const router = express.Router();
 
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+// const SUPABASE_URL = process.env.SUPABASE_URL;
+// const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+const SUPABASE_URL = 'https://iwmhcenfajmzdmsindyl.supabase.co';
+const SUPABASE_SERVICE_ROLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3bWhjZW5mYWptemRtc2luZHlsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2Mjc2OTU2NiwiZXhwIjoyMDc4MzQ1NTY2fQ._uhlm_kAWhfiCGQThuZfGX4aUVFHnK_8mmHJJthyczs';
+
 
 if (!SUPABASE_URL || !SUPABASE_SERVICE_ROLE_KEY) {
   console.error('Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY env vars in auth route');
@@ -25,7 +29,23 @@ router.post('/login', async (req, res) => {
 
     if (error) return res.status(401).json({ error: error.message });
 
-    return res.json({ session: data.session ?? null, user: data.user ?? null });
+    // fetch profile (manager and full_name) from user_profiles linked by user id
+    let profile: { full_name?: string | null; manager?: string | null; user_type?: string | null } | null = null;
+    const userId = data.user?.id ?? null;
+    if (userId) {
+      const { data: p, error: pErr } = await supabase
+        .from('user_profiles')
+        .select('full_name, manager, user_type')
+        .eq('id', userId)
+        .single();
+      if (!pErr && p) profile = { full_name: p.full_name ?? null, manager: p.manager ?? null, user_type: p.user_type ?? null };
+    }
+
+    return res.json({
+      session: data.session ?? null,
+      user: data.user ?? null,
+      user_profile: profile,
+    });
   } catch (err: any) {
     console.error('login error', err);
     return res.status(500).json({ error: 'internal_server_error' });
