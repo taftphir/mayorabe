@@ -12,12 +12,10 @@ const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
 if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
   console.warn("Missing SUPABASE env — skipping supabase init");
   // process.exit(1);
-  // const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 } else {
   console.warn("SUPABASE env — success supabase init");
-  // const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 }
-const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
+// const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
 // GET /api/aktifitas?spg=All or /api/aktifitas?spg=<uploader_id>
 // data always filtered to current year and current month
