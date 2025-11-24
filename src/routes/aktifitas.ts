@@ -14,6 +14,7 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 // GET /api/aktifitas?spg=All or /api/aktifitas?spg=<uploader_id>
 // data always filtered to current year and current month
 router.get('/aktifitas', async (req, res) => {
+  return res.status(500).json({ error: 'testing_error_yp' });
   try {
     const now = new Date();
     const year = now.getFullYear();
