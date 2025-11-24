@@ -12,6 +12,11 @@ app.use(express.json());
 
 const port = process.env.PORT ?? 3000;
 
+app.get("/", (req, res) => {
+  res.send("OK");
+});
+
+// router kamu
 app.use('/', authRoutes);
 app.use('/', aktifitasRoutes);
 app.use('/', omzetRoutes);
