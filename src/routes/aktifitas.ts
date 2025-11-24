@@ -11,7 +11,7 @@ const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
 if (!process.env.SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
   console.warn("Missing SUPABASE env — skipping supabase init");
 } else {
-  const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEYY);
+  const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 }
 // const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
