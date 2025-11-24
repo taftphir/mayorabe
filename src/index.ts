@@ -1,5 +1,5 @@
-import * as dotenv from 'dotenv';
-dotenv.config(); // <-- pastikan ini dijalankan sebelum import apapun yang memakai process.env
+// import * as dotenv from 'dotenv';
+//dotenv.config(); // <-- pastikan ini dijalankan sebelum import apapun yang memakai process.env
 
 import express from 'express';
 // import authRoutes from './routes/auth';
