@@ -32,13 +32,13 @@ process.on("unhandledRejection", err => {
 
 // router kamu
 // app.use('/', authRoutes);
-app.use('/', aktifitasRoutes);
+// app.use('/', aktifitasRoutes);
 // app.use('/', omzetRoutes);
 // app.use('/', gpsRoutes);
 
 // debug: pastikan routes ter-mount saat server start
-console.log('Routes mounted: / (authRoutes, aktifitasRoutes, omzetRoutes, gpsRoutes)');
-// console.log('Routes mounted: / basic');
+// console.log('Routes mounted: / (authRoutes, aktifitasRoutes, omzetRoutes, gpsRoutes)');
+console.log('Routes mounted: / basic');
 
 app.listen(port, () => {
   console.log(`API listening on ${port}`);
