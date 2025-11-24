@@ -3,11 +3,11 @@ import { createClient } from '@supabase/supabase-js';
 
 const router = express.Router();
 
-// const SUPABASE_URL = process.env.SUPABASE_URL ?? '';
-// const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
+const SUPABASE_URL = process.env.SUPABASE_URL ?? '';
+const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? '';
 
-const SUPABASE_URL = 'https://iwmhcenfajmzdmsindyl.supabase.co';
-const SUPABASE_SERVICE_ROLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3bWhjZW5mYWptemRtc2luZHlsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2Mjc2OTU2NiwiZXhwIjoyMDc4MzQ1NTY2fQ._uhlm_kAWhfiCGQThuZfGX4aUVFHnK_8mmHJJthyczs';
+// const SUPABASE_URL = 'https://iwmhcenfajmzdmsindyl.supabase.co';
+// const SUPABASE_SERVICE_ROLE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml3bWhjZW5mYWptemRtc2luZHlsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc2Mjc2OTU2NiwiZXhwIjoyMDc4MzQ1NTY2fQ._uhlm_kAWhfiCGQThuZfGX4aUVFHnK_8mmHJJthyczs';
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
 
