@@ -3,7 +3,7 @@
 
 import express from 'express';
 // import authRoutes from './routes/auth';
-// import aktifitasRoutes from './routes/aktifitas';
+import aktifitasRoutes from './routes/aktifitas';
 // import omzetRoutes from './routes/omzet';
 // import gpsRoutes from './routes/gps';
 
@@ -25,20 +25,15 @@ process.on("unhandledRejection", err => {
   console.error("UNHANDLED REJECTION >>>", err);
 });
 
-// const router = express.Router();
-// app.get("/", (req, res) => {
-//   res.send("OK");
-// });
-
 // router kamu
 // app.use('/', authRoutes);
-// app.use('/', aktifitasRoutes);
+app.use('/', aktifitasRoutes);
 // app.use('/', omzetRoutes);
 // app.use('/', gpsRoutes);
 
 // debug: pastikan routes ter-mount saat server start
-// console.log('Routes mounted: / (authRoutes, aktifitasRoutes, omzetRoutes, gpsRoutes)');
-console.log('Routes mounted: / basic');
+console.log('Routes mounted: / (authRoutes, aktifitasRoutes, omzetRoutes, gpsRoutes)');
+// console.log('Routes mounted: / basic');
 
 app.listen(port, () => {
   console.log(`API listening on ${port}`);
