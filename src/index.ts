@@ -3,7 +3,7 @@
 
 import express from 'express';
 // import authRoutes from './routes/auth';
-import aktifitasRoutes from './routes/aktifitas';
+// import aktifitasRoutes from './routes/aktifitas';
 // import omzetRoutes from './routes/omzet';
 // import gpsRoutes from './routes/gps';
 
